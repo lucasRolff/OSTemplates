@@ -18,3 +18,9 @@ ssh-keygen -A
 
 echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config
+
+{% if sshkey %}
+    mkdir -p /root/.ssh/
+    echo "{{ sshkey }}" >> /root/.ssh/authorized_keys
+    chmod -R 600 /root/.ssh
+{% endif %}

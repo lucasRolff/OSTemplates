@@ -8,7 +8,6 @@ IPV6INIT=yes
 IPV6_FAILURE_FATAL=no
 IPV6ADDR={{ ipv6_addr }}
 IPV6_DEFAULTGW=fe80::1%eth0
-NM_CONTROLLED=no
 " > /etc/sysconfig/network-scripts/ifcfg-eth0
 
 {% if sshkey %}
@@ -17,4 +16,4 @@ NM_CONTROLLED=no
     chmod -R 600 /root/.ssh
 {% endif %}
 
-xfs_growfs /dev/sda2
+resize2fs /dev/sda1

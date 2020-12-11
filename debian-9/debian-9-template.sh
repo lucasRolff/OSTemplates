@@ -17,3 +17,9 @@ resize2fs /dev/sda2
 ssh-keygen -A
 
 echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config
+
+{% if sshkey %}
+    mkdir -p /root/.ssh/
+    echo "{{ sshkey }}" >> /root/.ssh/authorized_keys
+    chmod -R 600 /root/.ssh
+{% endif %}
