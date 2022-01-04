@@ -24,11 +24,11 @@ set -euxo pipefail
 #os=centos-8
 
 # ubuntu 20.04
-#location="/srv/ubuntu-20.04-live-server-amd64.iso,kernel=casper/vmlinuz,initrd=casper/initrd"
+#location="/srv/ubuntu-20.04.3-live-server-amd64.iso,kernel=casper/vmlinuz,initrd=casper/initrd"
 #os=ubuntu-20.04
 
 # oracle linux 8 unbreakable kernel
-cp /home/fhr/Downloads/OracleLinux8/OracleLinux-R8-U3-x86_64-dvd.iso /srv/
+#cp /home/fhr/Downloads/OracleLinux8/OracleLinux-R8-U3-x86_64-dvd.iso /srv/
 location="/srv/OracleLinux-R8-U3-x86_64-dvd.iso,initrd=isolinux/initrd.img,kernel=isolinux/vmlinuz"
 os="oraclelinux-8"
 
@@ -100,8 +100,8 @@ else
 fi
 
 reset
-echo "Opening a console"
-sudo virsh console ${os}
+#echo "Opening a console"
+#sudo virsh console ${os}
 
 echo "Destroying the VM"
 sudo virsh destroy ${os}; sudo virsh undefine ${os}
